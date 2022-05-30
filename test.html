@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+    </body>
+    <script>
+        //concat, filter, map, slice, 스프레드(전개) 연산자
+
+        const a = [1,2,3];
+        const b = [...a];
+        console.log("1.================= 스프레드 연산자");
+        b.push(4); //데이터 변경
+        console.log(`a의 값은: ${a}`); //1,2,3
+        console.log(`b의 값은: ${b}`); //1,2,3,4
+        
+
+        console.log("2.================= 추가하기"); //DOM 추가할 때 사용
+        const a2 = [1,2,3];
+        const b2 = a2.concat(4);
+        console.log(`a의 값은: ${a2}`); //1,2,3
+        console.log(`b의 값은: ${b2}`); //1,2,3,4
+        const c2 = [0,...a2, 4]; //0,1,2,3,4 concat보다 편함
+        console.log(`c2의 값은: ${c2}`);
+
+        console.log("3.================= 걸러내기"); //DOM 삭제할 때 사용
+        const a3 = [1,2,3];
+        const b3 = a3.filter((n) => {return n != 1;}); //bool을 return 받는다 -> true만 걸러낸다.
+        console.log(`b3의 값은: ${b3}`); //2, 3
+
+        console.log("4.================= 잘라내기");
+        const a4 = [1,2,3];
+        const b4 = a4.slice(0, 2);      //[1, 2]
+        console.log(`b4의 값은: ${b4}`);
+        const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)];    //[1, 2, 4, 3]
+        console.log(`c4의 값은: ${c4}`);
+
+        console.log("5.================= 반복하기");
+        const a5 = [1,2,3];
+        // for(let i = 0; i < a5.length; i++) {
+        //     console.log(a5[i]);
+        // }
+        a5.forEach((n) => {console.log(n);}); //리턴못함 반환형이 void
+        const b5 = a5.map((n) => {return n + 10;});  // == const b5 = a5.map((n) => n); //{}없으면 return임 == [...a5]
+
+        console.log(b5);
+
+        
+    </script>
+</html>
