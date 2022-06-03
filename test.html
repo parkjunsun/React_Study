@@ -7,6 +7,8 @@
         </head>
     </body>
     <script>
+
+
         //concat, filter, map, slice, 스프레드(전개) 연산자
 
         const a = [1,2,3];
@@ -17,6 +19,8 @@
         console.log(`b의 값은: ${b}`); //1,2,3,4
         
 
+
+
         console.log("2.================= 추가하기"); //DOM 추가할 때 사용
         const a2 = [1,2,3];
         const b2 = a2.concat(4);
@@ -25,10 +29,16 @@
         const c2 = [0,...a2, 4]; //0,1,2,3,4 concat보다 편함
         console.log(`c2의 값은: ${c2}`);
 
+
+
+
         console.log("3.================= 걸러내기"); //DOM 삭제할 때 사용
         const a3 = [1,2,3];
         const b3 = a3.filter((n) => {return n != 1;}); //bool을 return 받는다 -> true만 걸러낸다.
         console.log(`b3의 값은: ${b3}`); //2, 3
+
+
+
 
         console.log("4.================= 잘라내기");
         const a4 = [1,2,3];
@@ -36,6 +46,10 @@
         console.log(`b4의 값은: ${b4}`);
         const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)];    //[1, 2, 4, 3]
         console.log(`c4의 값은: ${c4}`);
+
+
+
+
 
         console.log("5.================= 반복하기");
         const a5 = [1,2,3];
@@ -46,6 +60,30 @@
         const b5 = a5.map((n) => {return n + 10;});  // == const b5 = a5.map((n) => n); //{}없으면 return임 == [...a5]
 
         console.log(b5);
+
+
+        
+
+        const data = {phone:2222};
+        const a6 = {id:1, name:"홍길동", phone:"1111", age:17, gender:"남"};
+        const b6 = {...a6, ...data}; //객체 데이터 변경 => 기존 data 전개 연산자, 받은 data 전개연산자 => 받은 data가 기존 data 덮어 씌여버리는 구조
+
+        console.log(b6);
+
+        const users = [
+            {id:1, name:"박준순", phone:"2222"},
+            {id:2, name:"이대엽", phone:"3333"},
+            {id:3, name:"오승훈", phone:"4444"}
+        ];
+
+        const updateUserDto = {
+            id:2, name:"홍길동"
+        };
+
+        const newUsers = users.map(u => u.id === updateUserDto.id ? {...u, ...updateUserDto} :u); 
+        // users의 id와 dto의 id를 비교해가면서 다르면 그냥 users의 객체가 나오고 같으면 dto의 데이터로 업데이트된 객체가 나옴
+        
+        console.log("newUsers", newUsers);
 
         
     </script>
