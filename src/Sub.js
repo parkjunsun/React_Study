@@ -1,5 +1,7 @@
 import React from 'react';
 
+let num = 10;
+
 const Sub = () => {
   return (
     <div>
@@ -8,4 +10,5 @@ const Sub = () => {
   );
 };
 
-export default Sub;
+export { num };
+export default Sub; // 이 함수를 외부에 노출하겠다는 뜻
